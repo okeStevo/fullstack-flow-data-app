@@ -1,0 +1,42 @@
+
+<%- include('../includes/head', {title: "SDI - flow data", content: "enter your range to fetch flow data, starting from 2024"}) %>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/head.css" />
+    <link rel="stylesheet" href="styles/russel.css">
+    <script src="scripts/fetch.js" defer></script>
+  </head>
+  <header><%- include('../includes/header') %></header>
+
+<body>
+    <div class="container">
+        <h2>Styled Form</h2>
+        <form>
+            <div class="group">
+                <h3 class="group-heading">Latitude</h3>
+                <div class="form-group">
+                    <input type="number" placeholder="Degrees" class="sea-blue">
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Minutes" class="sea-blue">
+                </div>
+            </div>
+            <div class="group">
+                <h3 class="group-heading">Longitude</h3>
+                <div class="form-group">
+                    <input type="number" placeholder="Degrees" class="sea-blue">
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Minutes" class="sea-blue">
+                </div>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+</html>
+<style>
+
+</style>
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head', {title: "not authenticated", content: "not allowed"}) %>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/head.css" />
+    <link rel="stylesheet" href="styles/auth.css">
+  </head>
+  <body>
+    <%- include('includes/header') %>
+    <main>
+      <h1 style="color: black">
+        Kindly<a href="/login">login</a> to view the page or <a href="/signup">signup</a> if you don't have
+        an account.
+      </h1>
+    </main>
+  </body>
+</html>

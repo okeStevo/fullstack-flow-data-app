@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head', {title: "error", content: "this page doesent exist"}) %>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/head.css" />
+    <link rel="stylesheet" href="styles/404.css" />
+
+  </head>
+  <body>
+    <header>
+      <%- include('includes/header') %>
+    </header>
+    <main>
+      <span>
+        <h2>404</h2>
+        <p>looks like you are lost</p>
+        <h3>Unfortunately this page do ot exist on this website, go back <a href="/" class="btn btn-outline-success">home</a></h1>
+        </span>
+    </main>
+  </body>
+</html>

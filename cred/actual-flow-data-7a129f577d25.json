@@ -1,0 +1,14 @@
+{
+  "type": "service_account",
+  "project_id": "actual-flow-data",
+  "private_key_id": "7a129f577d2595ea2f2ff9aa3d53d872a0621108",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8UWmBUpeMqHr1\ngMhRpExT6XmTnjQkdHpXDETy6jNkyUuqM9hth59/PYP9gaHq9/GDCH+3/l0kQFOm\n10E3XDGs/71UbNEO+ta2RkEt2BkgwG/x5jdRYWBX6yoWjaVSwxUjZA1VH5LBBwNi\nhH2T7IXDWttCXYz5tEW1359vcBhExYAf3dJCeqlb8ZqvGZHU3JyRLre4/ySEvPk6\nfULhx6k3pwxWnLDLOv+N7z527jjQOz/SO8TtWj7TVExZ3vHsEcGYMvrtZv9f20Li\nCJNA5FoGWoEWjZ3XFOVFzS2wW9zgpDjn9w7Br3d8DanUEJgtiIWT7Jubrf0DPGXZ\nXH2QmGGJAgMBAAECggEAANebKxbLxbdex87mvNkiwqdP9PvBDCUXNpQ/9+Qmc0qk\nYEnK3uaIRvqz84P+Z0od/H68iRdsPDeR1QFJpRRwLNYx9xKYUFxWOuRCi11xjO0M\nMx7bKK23HBcmdFZeCTcFI656+GJjqiHvzAnl2kdonvCLlX1MnmgSsPCjymaycEnk\nQdXFQv9ZroIu2wPM/0a2mJzoLzqr798za+aQVizGXwg8VVXQKK8Gp8jYY7sbc+RL\nw33blMwOvnPRCx0uPIPxge65MZckrVxfJnAVxG/yDMcz2BWDkGqEjznNwTtxWcu0\nIPN4jmgcDgyIpKqrF1Wmbe3lpMRm4gcY5ch+WTiiOQKBgQD2LP9NzlwZjaZhVQg1\nRwNiitKj4W/nkQOXIDBcgr0YZWDXeCRBhK43tTxmMEVGFJaRGEOGCL7UFzwt2P1n\nn64DxOdAYt3MCsp/3rMm1dDzINQ7kgN7JvruZ6H7ASqefmqlEzfSYZez3OHExnS0\nvJr+8H9AlFuPMZYiMshhLh2C7QKBgQDD1VLF0EFBO9oPV5K0cMEk89clGq0522jy\nZAexO762X1Ns4Xyh2XkB1R3y76t+1KsClfdPAN8+97Ixx4UWks4asPF7NLvMyflY\nL2koiKxvyOr1LLXDuICGgfeu2oQldSFzHgcGVIGRsr78X4adIMyKwu9B0WRgsRaQ\ncQunmGK5jQKBgDpp/P66a9JIcWWBJtx1iFEWvdrTQJmDKIXwxmj9QN+MFsmqIXhG\ngoyHfdiFtbpmYj/1sPgaFSYAiXAboC25jzInw/PcQeML4HctIfeiHt3COXoVMKxF\nWJ+/iYklArbvKmEXSVSrgbLVQ+FMch787g52hMuPKJa23ngo8rFUnv4VAoGADETv\nPKmBjR682L052cg+sZv9XLvBIqDWgGk3+iiuGCr8xROThWhkpnK9v5y4d+fHFxBi\nQDbjxcQrC+deNT3ZX966Imf5ZCk7UAUYZ4u4kgBaiCXW9X43vzWhWPkj0lz2TYoS\nEpl0zLYQNSue+XU2m3L/HnaJ/Wza5w3OFx/6/3kCgYEAzx818y4WjXvOQc1dD3ZK\ngexglQm8xNR8hxQ2cj2RnG86iXPJ4l7V623RUT6ku5zH2Tm44I1uCXhkIMPDhc9J\nNHq4u6d6UgwN1oQbdePldNLnbaL2TfVurCZR6mg/yvphCvVK1rpHkqQ/KoFcP65h\nAWKvOaPyzTfCfNJ7u37YmLI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "flowdata@actual-flow-data.iam.gserviceaccount.com",
+  "client_id": "112356075130799930619",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/flowdata%40actual-flow-data.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com",
+  "redirect_uris": ["https://oauth.pstmn.io/v1/callback"]
+}

@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/styles/form.css" />
+<head>
+  <%- include('../includes/head', {title: "admin page - only admins", content: "this page does not exist on sdi."}) %>
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/head.css" />
+</head>
+<body class="body-part">
+  <header><%-include('../includes/header') %></header>
+  <main style="margin-top: 5rem; color: white">
+    <b style="color: white"> if you are on this page then you are an admin</b>
+    <br />
+    <b style="color: white">
+      we have <%= allUsers.length %> signed in users at the moment
+    </b>
+    <ul>
+      they are <% for(const users of allUsers) { %>
+      <p style="color: white">
+        <li>
+          <%= users.name %> ==> <a href="mailto:<%= users.email %>" ><%=users.email %></a> 
+        </li>
+      </p>
+      <% } %>
+    </ul>
+  </main>
+</body>

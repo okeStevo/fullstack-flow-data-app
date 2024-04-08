@@ -1,0 +1,27 @@
+/* main {
+  box-sizing: border-box;
+  margin-top: 5rem;
+
+}
+table {
+    border: 3;
+    color: white;
+    margin: 0 auto;
+    width: 60%;
+    border-radius: 5px;
+    text-align: center;
+}
+.flow-table th, td {
+  padding: 10px;
+}
+main form button {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+.tableHeadingText {
+  color: white;
+}
+tbody {
+  margin-left: 20rem;
+} */

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/head', {title: "SDI - home", content: "Welcome to sdi we offer various services like consultancy, assist with personal projects, you can even view and download flow data from our website."})
+    %>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/head.css" />
+    <link rel="stylesheet" href="styles/shared.css" />
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/change.js" defer></script>
+  </head>
+  <body>
+    <header><%- include('../includes/header') %></header>
+    <section class="image">
+      <div class="image-overlay">
+          <div class="overlay-content">
+              <h1>Welcome to our Website</h1>
+              <p>Explore our Webmap to access a wealth of information related to water monitoring and the Oke Peace Rusle Research Project.</p>
+              <a href="#explore" class="btn">Explore Now</a>
+          </div>
+      </div>
+      <img src="images/im.jpeg" alt="" />
+  </section>
+  
+    <main>
+      <section id="about">
+          <div class="container">
+              <h2>About the Project</h2>
+              <p>
+                  Welcome to the official webmap for Omoniyi Ikuomola's master project on "Secured SDI for Effective Water Monitoring." This platform also hosts the "Oke Peace Rusle Research Project." This ambitious initiative is supervised by the esteemed Dr. Akinwumiju, a leading expert in the field.
+              </p>
+          </div>
+      </section>
+      <section id="what-is-sdi">
+          <div class="container">
+              <h2>What is SDI?</h2>
+              <p>
+                  Spatial Data Infrastructure (SDI) is the backbone of modern geospatial information systems. It provides a framework for efficiently discovering, accessing, sharing, and managing geospatial data and related resources across multiple organizations and domains. Omoniyi Ikuomola's project is dedicated to enhancing the security and efficiency of SDI for effective water monitoring.
+              </p>
+          </div>
+      </section>
+      <section id="explore">
+        <div class="container">
+            <h2>Explore our Webmap</h2>
+            <div class="explore-content">
+                <p>You can explore our webmap to access a wealth of information related to water monitoring and the Oke Peace Rusle Research Project. Here's what you'll find:</p>
+                <ul>
+                    <li><span class="icon">🌍</span> Interactive Maps: Dive into interactive maps featuring real-time and historical data on water resources and geographical information related to the research projects.</li>
+                    <li><span class="icon">📊</span> Data Visualization: Engage with visually appealing charts and graphs that provide insights into water quality, availability, and other key metrics.</li>
+                    <li><span class="icon">📚</span> Research Findings: Access research reports, papers, and publications related to the projects. Stay updated with the latest developments in the field.</li>
+                    <li><span class="icon">🤝</span> Collaboration Hub: Connect with researchers, stakeholders, and experts in the field of water monitoring and peace research. Collaboration is key to addressing complex challenges.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+      <section id="objectives">
+          <div class="container">
+              <h2>Our Objectives</h2>
+              <div class="objectives-buttons">
+                  <button>Hosting</button>
+                  <button>Security</button>
+                  <button>Monitoring</button>
+              </div>
+              <div class="objective-details">
+                  <h3>Hosting Oke Peace Rusle Research</h3>
+                  <p>
+                      In addition to our primary project, we proudly host the "Oke Peace Rusle Research Project." This initiative explores the intersections of peace, security, and environmental factors, contributing to a more comprehensive understanding of these complex issues.
+                  </p>
+              </div>
+          </div>
+      </section>
+      <section id="faq">
+        <div class="container">
+            <h2>FAQ</h2>
+            <div class="faq-question">
+                <h3 onclick="toggleAnswer(event)">Why Water Monitoring Matters</h3>
+                <p class="faq-answer">
+                    Water is a precious resource, and its monitoring is critical for sustainable environmental management. Omoniyi Ikuomola's research addresses the challenges and complexities of water monitoring by leveraging cutting-edge technology and secure data infrastructure.
+                </p>
+            </div>
+        </div>
+    </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>
+                Join Us in Advancing Water Monitoring and Peace Research. We invite you to explore our webmap and join us in our mission to secure Spatial Data Infrastructure for effective water monitoring and to advance peace research. Together, we can make a significant impact on the preservation of our vital water resources and contribute to a more peaceful and sustainable world. For inquiries, collaboration opportunities, or more information, please contact us. Thank you for visiting, and we look forward to your involvement in our important projects.
+            </p>
+            <p>
+                <a href="/signup">Sign Up</a> or <a href="/login">Login</a> to be a part of this.
+            </p>
+        </div>
+    </footer>
+  </body>
+  <div id="message-container">
+    <div id="message">click the background to switch color</div>
+    <button id="close-button">Close</button>
+  </div>
+</html>
+<script>
+
+
+</script>

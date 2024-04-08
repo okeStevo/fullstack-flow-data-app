@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/head.ejs', {title: "success!!", content:""}) %>
+  </head>
+  <body>
+    <header><%- include('../includes/header') %></header>
+    <main style="padding: 5rem; height: 100vh; overflow: hidden">
+      <h1>Success!</h1>
+      <% if (locals.IsAuth) { %>
+      <p>your data was succefully collected</p>
+      <% } %>
+    </main>
+  </body>
+</html>

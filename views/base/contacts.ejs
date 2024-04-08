@@ -1,0 +1,72 @@
+<head>
+  <%- include('../includes/head', {title: "SDI - contacts", content: "meet thecreators"}) %>
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/head.css" />
+  <link rel="stylesheet" href="styles/contacts.css" />
+  <script
+    src="https://kit.fontawesome.com/83edc462d7.js"
+    crossorigin="anonymous" defer
+  ></script>
+  <script src="scripts/anim.js.js" defer></script>
+</head>
+<body class="body-part">
+  <header><%-include('../includes/header') %></header>
+  <main class="main-part">
+    <h1 style="margin-top: 5rem; color: white">Meet us...</h1>
+    <section style="color: black" class="cardPart">
+      <div class="card" style="width: 18rem">
+        <img
+          src="/images/oi.png"
+          class="card-img-top"
+          alt="this is the image of the oner"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Omoniyi Ikuomola</h5>
+          <p class="card-text">
+            Omoniyi Ikuomola is a GISprofessional and a data analyst
+          </p>
+          <a href="#" class="btn btn-primary">See details</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img src="/mages/WIN_20240126_15_47_15_Pro.jpg" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Oke Stephen</h5>
+          <p class="card-text">
+            oke stephen is a young web developer who started coding at the age
+            of 14
+          </p>
+          <a href="#" class="btn btn-primary">See More</a>
+        </div>
+      </div>
+    </section>
+    <div class="hero">
+      <form action="/contacts" method="post" id="form">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+        <div class="row">
+          <div class="input-group">
+            <input type="text" id="name" value="" required />
+            <label for="name"><i class="fa-solid fa-user fa-shake"></i>name</label>
+          </div>
+          <div class="input-group">
+            <input type="number" id="number" required />
+            <label for="number">
+              <i class="fa-solid fa-phone-square-alt"></i> Number</label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="email" required />
+          <label for="name"> <i class="fa-solid fa-envelope "></i> E-mail</label>
+        </div>
+        <div class="input-group">
+          <textarea name="message" id="message" rows="8" required></textarea>
+          <label for="message"
+            ><i class="fa-solid fa-comments"></i>Your message</label
+          >
+        </div>
+        <button id="sub"><i class="fa-solid fa-paper-plane"></i>submit</button>
+      </form>
+    </div>
+  </main>
+</body>

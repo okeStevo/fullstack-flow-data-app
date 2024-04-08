@@ -1,0 +1,84 @@
+/* Form Container */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* White */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Light gray */
+  border-radius: 5px;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0077be; /* Blue */
+  color: #fff; /* White */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #005580; /* Darker blue */
+}
+
+.fallback {
+  text-align: center;
+}
+
+.fallback p {
+  font-size: 14px;
+}
+
+.fallback p a {
+  color: #0077be; /* Blue */
+  text-decoration: none;
+}
+
+.fallback p a:hover {
+  text-decoration: underline;
+}
+/* Error Message */
+#hasError {
+  color: #ff0000; /* Red */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+/* Animations */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-from-top {
+  animation: slideInFromTop 0.5s ease-out forwards;
+}

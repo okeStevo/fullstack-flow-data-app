@@ -1,0 +1,47 @@
+.datePick {
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+}
+.datePick button {
+  width: 8rem;
+  border: none;
+  background-color: rgb(70, 148, 70);
+  color: white;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-family: "roboto";
+}
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 2rem;
+  font-size: 1.8rem;
+  width: 80%;
+  color: rgb(143, 74, 74);
+  /* height: 20%; */
+}
+dialog button {
+  width: 6rem;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(163, 157, 157);
+}
+.downloadButton {
+  padding: 10px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 6px;
+  border: none;
+  color: rgb(0, 50, 100);
+}
+@media screen and (max-width: 550px) {
+  .datePick {
+    width: 98%;
+  }
+}
+

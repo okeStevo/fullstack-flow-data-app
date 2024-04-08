@@ -1,0 +1,70 @@
+
+<%- include('../includes/head', {title: "SDI - flow data", content: "enter your range to fetch flow data, starting from 2024"}) %>
+<link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/head.css" />
+    <link rel="stylesheet" href="styles/sheet.css">
+    <link rel="stylesheet" href="styles/data.css">
+    <script src="scripts/fetch.js" defer></script>
+  </head>
+  <header><%- include('../includes/header') %></header>
+  <main>
+    <dialog id="dialog">
+      <p>
+
+        you must enter a start date and end date
+       
+      </p>
+    <div>
+      <button class="close">close</button>
+    </div>
+</dialog>
+
+
+    <body>
+      <form id="formPart">
+        <p style="color: white;">
+
+          be sure to enter the day b4 the mongth
+          <br>so 8th of march is 08/03/2024. 
+        </p>
+        <div class="datePick">
+       
+          <div class="dateCon">
+              <p id="loading">loading...</p>
+            <p data-csrfToken="<%= locals.csrfToken %>" id="csrf">
+              <label for="">Start</label>
+              <input  type="date" name="start"value="2024-03-01" id="start">
+            </p>
+            <p>
+              <label for="">End</label>
+              <input type="date" value="2024-03-28" name="end"  id="end">
+          </p>
+        </div>
+        <button id="getData">fetch data</button>
+      </div>
+    
+      </form>
+      <button class="downloadButton">DownLoad</button>
+      <div>
+        <table style="color: white;" class="content-table">
+          <thead>
+
+            <tr>
+              <th>Time stamp</th> 
+              <th>Date</th>
+              <th>Flow data</th>
+            </tr>
+          </thead>
+          <tbody style="color: white;" id="row">
+           
+          </tbody>
+        </table>
+      </div>
+    </body>
+
+  </main>
+</html>
+<style>
+
+</style>
+

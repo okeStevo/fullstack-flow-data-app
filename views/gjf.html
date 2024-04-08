@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head', {title: "flow data"}) %>
+    <link rel="stylesheet" href="styles/sheet.css" />
+    <script src="scripts/res.js"></script>
+  </head>
+  <body>
+    <%- include('includes/header') %>
+    <main>
+      <h1>Flow Data</h1>
+      <label for="startDate">Start Date: </label>
+      <input type="date" id="startDate">
+      <label for="endDate">End Date: </label>
+      <input type="date" id="endDate">
+      <button id="filterButton">Filter</button>
+      <button id="downloadCSVButton">Download CSV</button>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+          </tr>
+        </thead>
+        <tbody id="dataTable">
+          <!-- Data will be displayed here -->
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

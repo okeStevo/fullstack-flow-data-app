@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../includes/head', {title: "Login", content: "Login to SDI and become a member"}) %>
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/head.css">
+  <link rel="stylesheet" href="styles/form.css" />
+</head>
+<body class="body-part">
+  <header>
+    <%- include('../includes/header') %>
+  </header>
+  <main class="main-part">
+    <div class="form-container">
+      <form action="/login" method="post">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <h1 class="headText">Login</h1>
+        <% if (inputData.hasError) { %>
+          <p id="hasError" class="error-message">
+            <%= inputData.errMessage %>
+          </p>
+        <% } %>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" value="<%= inputData.password %>" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+        <div class="fallback">
+          <p>Don't have an account? <a href="/signup">Sign up</a> to proceed.</p>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
