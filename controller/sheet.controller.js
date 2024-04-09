@@ -122,6 +122,60 @@ async function download(req, res) {
 function russel(req, res) {
   res.render("base/russel");
 }
+function russelFetch() {
+  const { google } = require("googleapis");
+  const auth = require("./auth.json");
+
+  // Create a new Google Sheets instance
+  const sheets = google.sheets({ version: "v4", auth });
+
+  // Function to fetch data from Google Sheets based on specified column values
+  async function fetchData(
+    column1Value,
+    column2Value,
+    column3Value,
+    column4Value
+  ) {
+    try {
+      // Define the range to fetch data from (assuming data starts from row 2)
+      const range = "Sheet1!A2:D"; // Change 'Sheet1' to your sheet name and adjust columns as needed
+
+      // Fetch data from the specified range
+      const response = await sheets.spreadsheets.values.get({
+        spreadsheetId: "YOUR_SPREADSHEET_ID",
+        range,
+      });
+
+      // Extract values from the response
+      const rows = response.data.values;
+
+      // Filter rows based on specified column values
+      const filteredRows = rows.filter(
+        (row) =>
+          row[0] === column1Value &&
+          row[1] === column2Value &&
+          row[2] === column3Value &&
+          row[3] === column4Value
+      );
+
+      // Return the filtered rows
+      return filteredRows;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
+  }
+
+  // Example usage: Fetch data corresponding to specified column values
+  fetchData("value1", "value2", "value3", "value4")
+    .then((filteredRows) => {
+      console.log("Filtered rows:", filteredRows);
+      // Process the filtered rows here
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 // ... Your existing code ...
 
 module.exports = {
