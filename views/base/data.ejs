@@ -1,11 +1,12 @@
 
 <%- include('../includes/head', {title: "SDI - flow data", content: "enter your range to fetch flow data, starting from 2024"}) %>
-<link rel="stylesheet" href="styles/base.css" />
+<script src="https://kit.fontawesome.com/83edc462d7.js" defer crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/head.css" />
     <link rel="stylesheet" href="styles/sheet.css">
     <link rel="stylesheet" href="styles/data.css">
     <script src="scripts/fetch.js" defer></script>
-  </head>
+</head>
   <header><%- include('../includes/header') %></header>
   <main>
     <dialog id="dialog">
@@ -30,7 +31,7 @@
         <div class="datePick">
        
           <div class="dateCon">
-              <p id="loading">loading...</p>
+              <p id="loading"></p>
             <p data-csrfToken="<%= locals.csrfToken %>" id="csrf">
               <label for="">Start</label>
               <input  type="date" name="start"value="2024-03-01" id="start">

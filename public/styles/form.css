@@ -3,9 +3,10 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff; /* White */
+  background-color: none; /* White */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  color: white;
 }
 
 .form-container h1 {
@@ -61,7 +62,7 @@
 }
 /* Error Message */
 #hasError {
-  color: #ff0000; /* Red */
+  color: #ffa1a1; /* Red */
   font-size: 14px;
   margin-top: 5px;
 }
