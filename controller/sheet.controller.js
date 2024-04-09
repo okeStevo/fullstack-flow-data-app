@@ -122,64 +122,54 @@ async function download(req, res) {
 function russel(req, res) {
   res.render("base/russel");
 }
-function russelFetch(req, res) {
-  const { google } = require("googleapis");
-  const auth = require("./auth.json");
+async function fetchData(startCol1, startCol2, endCol1, endCol2) {
+  try {
+    // Define the range to fetch data from (assuming data starts from row 2)
+    const range = "Sheet1!A2:D"; // Change 'Sheet1' to your sheet name and adjust columns as needed
 
-  // Create a new Google Sheets instance
-  const sheets = google.sheets({ version: "v4", auth });
+    // Fetch data from the specified range
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: "YOUR_SPREADSHEET_ID",
+      range,
+    });
 
-  // Function to fetch data from Google Sheets based on specified column values
-  async function fetchData(
-    column1Value,
-    column2Value,
-    column3Value,
-    column4Value
-  ) {
-    try {
-      // Define the range to fetch data from (assuming data starts from row 2)
-      const range = "Sheet1!A2:D"; // Change 'Sheet1' to your sheet name and adjust columns as needed
+    // Extract values from the response
+    const rows = response.data.values;
 
-      // Fetch data from the specified range
-      const response = await sheets.spreadsheets.values.get({
-        spreadsheetId: "YOUR_SPREADSHEET_ID",
-        range,
-      });
-
-      // Extract values from the response
-      const rows = response.data.values;
-
-      // Filter rows based on specified column values
-      const filteredRows = rows.filter(
-        (row) =>
-          row[0] === column1Value &&
-          row[1] === column2Value &&
-          row[2] === column3Value &&
-          row[3] === column4Value
+    // Filter rows based on start and end column values
+    const filteredRows = rows.filter((row) => {
+      const [col1, col2, col3, col4] = row;
+      return (
+        col1 === startCol1 &&
+        col2 === startCol2 &&
+        col3 === endCol1 &&
+        col4 === endCol2
       );
+    });
 
-      // Return the filtered rows
-      return filteredRows;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      throw error;
-    }
+    return filteredRows;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
   }
+}
 
-  // Example usage: Fetch data corresponding to specified column values
-  fetchData("value1", "value2", "value3", "value4")
+// Define API endpoints
+function russelFetch(req, res) {
+  const { startCol1, startCol2, endCol1, endCol2 } = req.query;
+
+  fetchData(startCol1, startCol2, endCol1, endCol2)
     .then((filteredRows) => {
-      console.log("Filtered rows:", filteredRows);
-      // Process the filtered rows here
+      res.json({ data: filteredRows });
     })
     .catch((error) => {
-      console.error("Error:", error);
+      res.status(500).json({ error: "Error fetching data" });
     });
 }
-// ... Your existing code ...
 
 module.exports = {
   getSheet: getSheet,
   download: download,
+  russelFetch: russelFetch,
   russel: russel,
 };
