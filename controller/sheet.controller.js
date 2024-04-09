@@ -122,7 +122,7 @@ async function download(req, res) {
 function russel(req, res) {
   res.render("base/russel");
 }
-function russelFetch() {
+function russelFetch(req, res) {
   const { google } = require("googleapis");
   const auth = require("./auth.json");
 
