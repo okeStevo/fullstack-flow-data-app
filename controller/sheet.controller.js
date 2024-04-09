@@ -39,7 +39,7 @@ async function getSheet(req, res) {
       range,
     });
   } catch (error) {
-    res.status(400).json({ message: "no internet connection" });
+    res.status(400).json({ message: "no internet connection", code: "400" });
     return;
   }
 

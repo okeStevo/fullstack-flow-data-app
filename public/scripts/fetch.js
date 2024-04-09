@@ -16,7 +16,7 @@ function callModal(e) {
 function buildTable(e) {
   loading.style.display = "block";
   for (let t = 0; t < e.length; t++) {
-    var l = `
+    var n = `
     <tr>
     <td>
     ${e[t][0]}
@@ -29,7 +29,7 @@ function buildTable(e) {
               </td>
               </tr>
               `;
-    tableHolder.innerHTML += l;
+    tableHolder.innerHTML += n;
   }
   downloadButton.style.display = "block";
 }
@@ -41,62 +41,69 @@ async function handleDownloadClick() {
     });
     if (e.ok) {
       let t = await e.blob(),
-        l = window.URL.createObjectURL(t),
-        n = document.createElement("a");
-      (n.href = l),
-        n.setAttribute("download", "filtered_data.csv"),
-        n.click(),
-        window.URL.revokeObjectURL(l);
+        n = window.URL.createObjectURL(t),
+        l = document.createElement("a");
+      (l.href = n),
+        l.setAttribute("download", "filtered_data.csv"),
+        l.click(),
+        window.URL.revokeObjectURL(n);
     } else console.error("Download request failed:", e.statusText);
   } catch (o) {
     console.error("Error during download:", o);
   }
 }
-
-  closeBtn.addEventListener("click", () => {
-    dialogElem.close();
-  }),
+closeBtn.addEventListener("click", () => {
+  dialogElem.close();
+}),
   formPart.addEventListener("submit", async function (e) {
     e.preventDefault(), tableHolder.innerHTML && (tableHolder.innerHTML = null);
     let t = start.value,
-      l = end.value;
-    if (!l || !t) {
+      n = end.value;
+    if (!n || !t) {
       callModal("the dates values are empty");
       return;
     }
-    let n;
+    let l;
     try {
-      loading.innerHTML = `<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl" style="color: rgb(0,0,0);"></i>`;
-
-      n = fetch(`/sheet?limit=100&_csrf=${csrfToken}`, {
-        method: "POST",
-        body: JSON.stringify({ startDate: t, endDate: l }),
-        headers: { "content-type": "application/json" },
-      })
-        .then((e) => e.json())
-        .then(function (e) {
-          loading.innerHTML = `<i class="fa-solid fa-thumbs-up fa-2xl fa-fade"></i>`;
-          setTimeout(function(){
-            loading.innerHTML = ""
-          }, 5000)
-          if ((console.log(e), "401" === e.code)) {
-            callModal(
-              'you are not authenticated you must sign in to view this page <a href="/login">login</a>'
-            );
-            return;
-          }
-          if (e.data && e.data.length > 0) {
-            let t = e.data;
-            return buildTable(
-              (function e(t, l) {
-                let n = [],
-                  o = 0;
-                for (; o < t.length; ) n.push(t.slice(o, o + l)), (o += l);
-                return console.log(n.length), n[1];
-              })(t, 40)
-            );
-          }
-        });
+      (loading.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl" style="color: rgb(0,0,0);"></i>'),
+        (l = fetch(`/sheet?limit=100&_csrf=${csrfToken}`, {
+          method: "POST",
+          body: JSON.stringify({ startDate: t, endDate: n }),
+          headers: { "content-type": "application/json" },
+        })
+          .then((e) => e.json())
+          .then(function (e) {
+            if (
+              ((loading.innerHTML =
+                '<i class="fa-solid fa-thumbs-up fa-2xl fa-fade"></i>'),
+              setTimeout(function () {
+                loading.innerHTML = "";
+              }, 5e3),
+              console.log(e),
+              "401" === e.code)
+            ) {
+              callModal(
+                'you are not authenticated you must sign in to view this page <a href="/login">login</a>'
+              );
+              return;
+            }
+            if ("400" === e.code) {
+              callModal("error in fetching - no internet connection");
+              return;
+            }
+            if (e.data && e.data.length > 0) {
+              let t = e.data;
+              return buildTable(
+                (function e(t, n) {
+                  let l = [],
+                    o = 0;
+                  for (; o < t.length; ) l.push(t.slice(o, o + n)), (o += n);
+                  return console.log(l.length), l[1];
+                })(t, 40)
+              );
+            }
+          }));
     } catch (o) {
       alert("error fetching data");
       return;
