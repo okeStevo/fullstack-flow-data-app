@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-          <%- include('../includes/head', {title: 'monitor', content: "check out the monitor that gives a 3d flow sequence of the river"}) %>
-    </head>
+    <%- include('includes/head', {title: "unavailable!!!", content: "this is currently not available"}) %>
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/head.css" />
   </head>
   <body>
-    <%- include('../includes/header') %>
+    <header>
+    <%- include('includes/header') %>
+    </header>
     <main>
-        this page is under construction and will soon be ready
+      <section>
+        <p>
+          this page is currrently being worked on and will be available soon
+          <div>
+            you con explore SDI by clicking <a href="/">SDI</a>
+          </div>
+        </p>
+      </section>
     </main>
   </body>
 </html>
+<style>
+  body {
+    color: white;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8% auto;
+  }
+</style>
