@@ -125,11 +125,11 @@ function russel(req, res) {
 async function fetchData(startCol1, startCol2, endCol1, endCol2) {
   try {
     // Define the range to fetch data from (assuming data starts from row 2)
-    const range = "Sheet1!A2:D"; // Change 'Sheet1' to your sheet name and adjust columns as needed
+    const range = "Sheet1"; // Change 'Sheet1' to your sheet name and adjust columns as needed
 
     // Fetch data from the specified range
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: "YOUR_SPREADSHEET_ID",
+      spreadsheetId: "1D1BcUfyHKdiXNVXs4rzWAIVF7dGV56SEBzyRGzegiPY",
       range,
     });
 
@@ -146,7 +146,7 @@ async function fetchData(startCol1, startCol2, endCol1, endCol2) {
         col4 === endCol2
       );
     });
-
+    console.log(filteredRows)
     return filteredRows;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -154,7 +154,6 @@ async function fetchData(startCol1, startCol2, endCol1, endCol2) {
   }
 }
 
-// Define API endpoints
 function russelFetch(req, res) {
   const { startCol1, startCol2, endCol1, endCol2 } = req.query;
 
