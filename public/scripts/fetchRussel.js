@@ -16,6 +16,24 @@ function buildTable(e) {
               <td>
                   ${e[t][2]}
               </td>
+              <td>
+              ${e[t][3]}
+              </td>
+              <td>
+              ${e[t][4]}
+              </td>
+              <td>
+              ${e[t][5]}
+              </td>
+              <td>
+              ${e[t][6]}
+              </td>
+              <td>
+              ${e[t][7]}
+              </td>
+              <td>
+              ${e[t][8]}
+              </td>
               </tr>
               `;
     tableHolder.innerHTML += n;
@@ -49,7 +67,7 @@ russ.addEventListener("submit", async function (event) {
       }
       return chunks;
     }
-    const result = chunkArray(dataFrom, 100);
+    const result = chunkArray(dataFrom, 50);
     console.log(result[0]);
     buildTable(result);
   } catch (o) {
