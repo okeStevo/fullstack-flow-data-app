@@ -89,7 +89,9 @@ closeBtn.addEventListener("click", () => {
               return;
             }
             if ("400" === e.code) {
-              callModal("error in fetching - no internet connection");
+              callModal(
+                "server is currently down. <br> maybe due to poor or no internet connection Please try again"
+              );
               return;
             }
             if (e.data && e.data.length > 0) {

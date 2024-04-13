@@ -6,6 +6,7 @@ const session = require("express-session");
 const mongodbstore = require("connect-mongodb-session");
 const authRoutes = require("./routes/auth.routes");
 const sheetRoute = require("./routes/sheet.routes");
+const russel = require("./routes/russel.routes")
 const getLogAndSign = require("./routes/log-ang-sign.get.routes");
 const checkAuthStatus = require("./middleware/checkauthstatus");
 const baseRoutes = require("./routes/base.routes");
@@ -46,6 +47,7 @@ app.use(getLogAndSign);
 app.use(routes);
 app.use(sheetRoute);
 app.use(contsctsRoutes);
+app.use(russel)
 app.use("/", function (req, res, next) {
   res.render("404");
   next();
