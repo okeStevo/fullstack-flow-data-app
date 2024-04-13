@@ -59,7 +59,7 @@ function russelGetDataFromjs(req, res) {
     });
 }
 function russelGetRoutes(req, res) {
-  res.render("base/rTussel");
+  res.render("base/russel");
 }
 module.exports = {
   russelGetDataFromjs: russelGetDataFromjs,
