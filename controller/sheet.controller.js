@@ -70,6 +70,7 @@ async function getSheet(req, res) {
     endDate,
   };
   res.status(200).json({ data: filteredData });
+  filteredData = null;
 }
 async function download(req, res) {
   const authClient = await sheetsAuth.getClient();
@@ -119,12 +120,9 @@ async function download(req, res) {
   res.status(200).send(formattedData.join("\n"));
   return;
 }
-function russel(req, res) {
-  res.render("base/russel");
-}
+
 
 module.exports = {
   getSheet: getSheet,
   download: download,
-  
 };

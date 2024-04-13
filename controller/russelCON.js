@@ -27,19 +27,14 @@ async function fetchData(startCol1, startCol2, endCol1, endCol2) {
     });
 
     const rows = response.data.values;
-
     const filteredRows = rows.filter((row) => {
       const [col1, col2, col3, col4] = row;
+
       return (
-        col1 === startCol1 &&
-        col2 === startCol2 &&
-        col3 === endCol1 &&
-        col4 === endCol2
+        col2 >= startCol1 && col3 <= startCol2 && col2 >= endCol1 && col3 <= endCol2
       );
     });
-    console.log("done")
-
-    console.log(filteredRows)
+    console.log(filteredRows);
     return filteredRows;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -59,7 +54,7 @@ function russelGetDataFromjs(req, res) {
     });
 }
 function russelGetRoutes(req, res) {
-  res.render("base/rTussel");
+  res.render("base/russel");
 }
 module.exports = {
   russelGetDataFromjs: russelGetDataFromjs,
