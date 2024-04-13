@@ -4,7 +4,6 @@ const csrfToken = russ.dataset.csrftoken;
 console.log(csrfToken);
 
 function buildTable(e) {
-  loading.style.display = "block";
   for (let t = 0; t < e.length; t++) {
     var n = `
     <tr>
