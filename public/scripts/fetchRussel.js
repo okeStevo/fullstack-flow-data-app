@@ -1,4 +1,8 @@
 const russ = document.querySelector(".container form");
+const tableHolder = document.querySelector(".tableholder");
+const downloadButton = document.querySelector(".downloadButton");
+// downloadButton.style.display = "none"
+const loading = document.querySelector(".loading");
 console.dir(russ);
 const csrfToken = russ.dataset.csrftoken;
 console.log(csrfToken);
@@ -36,7 +40,7 @@ function buildTable(e) {
               </td>
               </tr>
               `;
-    tableHolder.innerHTML += n;
+    return (tableHolder.innerHTML += n);
   }
   downloadButton.style.display = "block";
 }
@@ -48,6 +52,9 @@ russ.addEventListener("submit", async function (event) {
   console.log(data);
 
   try {
+    loading.innerHTML =
+      '<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl" style="color: rgb(0,0,0);"></i>';
+
     let e = await fetch(`/russelFetch?_csrf=${csrfToken}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -65,12 +72,33 @@ russ.addEventListener("submit", async function (event) {
       for (let i = 0; i < array.length; i += size) {
         chunks.push(array.slice(i, i + size));
       }
+      console.log(chunks[1]);
       return chunks;
     }
     const result = chunkArray(dataFrom, 50);
-    console.log(result[0]);
     buildTable(result);
   } catch (o) {
     console.error("Error during download:", o);
   }
 });
+
+downloadButton.addEventListener("click", handleDownloadClick);
+async function handleDownloadClick() {
+  try {
+    let e = await fetch("/russelDownload", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (e.ok) {
+      let t = await e.blob(),
+        n = window.URL.createObjectURL(t),
+        l = document.createElement("a");
+      (l.href = n),
+        l.setAttribute("download", "filtered_data.csv"),
+        l.click(),
+        window.URL.revokeObjectURL(n);
+    } else console.error("Download request failed:", e.statusText);
+  } catch (o) {
+    console.error("Error during download:", o);
+  }
+}

@@ -1,9 +1,12 @@
 
 <%- include('../includes/head', {title: "SDI - flow data", content: "enter your range to fetch flow data, starting from 2024"}) %>
+
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/head.css" />
     <link rel="stylesheet" href="styles/russel.css">
     <script src="scripts/fetchRussel.js" defer></script>
+    <script src="https://kit.fontawesome.com/83edc462d7.js" defer crossorigin="anonymous"></script>
+
   </head>
   <header><%- include('../includes/header') %></header>
 
@@ -11,6 +14,7 @@
     <div class="container">
         <h2>Styled Form</h2>
         <form data-csrfToken="<%= locals.csrfToken %>">
+            <p class="loading"></p>
             <div class="group">
                 <h3 class="group-heading">Start</h3>
                 <div class="form-group">
@@ -31,6 +35,8 @@
             </div>
             <button type="submit" class="submit-button">Submit</button>
         </form>
+      <button class="downloadButton">DownLoad</button>
+
         <!-- nbjbuyf -->
     </div>
     <div>
@@ -48,19 +54,7 @@
       <th>RUSLE2_1</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>Value 1</td>
-      <td>Value 2</td>
-      <td>Value 3</td>
-      <td>Value 3</td>
-      <td>Value 3</td>
-      <td>Value 3</td>
-      <td>Value 3</td>
-      <td>Value 3</td>
-      <td>Value 3</td>
-      </tr>
-  </tbody>
+  <tbody class="tableHolder"></tbody>
 </table>
 
     </div>

@@ -55,7 +55,7 @@ app.use("/", function (req, res, next) {
 app.use(serverSideErrorHandler);
 db.getDb()
   .then(function () {
-    app.listen(4000);
+    app.listen(5000);
   })
   .catch(function (next) {
     next(error);
