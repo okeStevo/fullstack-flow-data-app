@@ -1,10 +1,10 @@
 const russ = document.querySelector(".container form");
 const tableHolder = document.querySelector(".tableholder");
 const downloadButton = document.querySelector(".downloadButton");
-// downloadButton.style.display = "none"
 const loading = document.querySelector(".loading");
-console.dir(russ);
 const csrfToken = russ.dataset.csrftoken;
+const inputValues = document.querySelectorAll(".sea-blue");
+console.log(inputValues[1].value);
 console.log(csrfToken);
 
 function buildTable(e) {
@@ -60,6 +60,7 @@ russ.addEventListener("submit", async function (event) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+    loading.innerHTML  ="Success"
     let d = await e.json();
     if (d.error) {
       console.log(d.error);
@@ -72,7 +73,6 @@ russ.addEventListener("submit", async function (event) {
       for (let i = 0; i < array.length; i += size) {
         chunks.push(array.slice(i, i + size));
       }
-      console.log(chunks[1]);
       return chunks;
     }
     const result = chunkArray(dataFrom, 50);
@@ -84,10 +84,17 @@ russ.addEventListener("submit", async function (event) {
 
 downloadButton.addEventListener("click", handleDownloadClick);
 async function handleDownloadClick() {
+  const values = [
+    inputValues[0].value,
+    inputValues[1].value,
+    inputValues[2].value,
+    inputValues[3].value
+  ];
   try {
-    let e = await fetch("/russelDownload", {
-      method: "GET",
+    let e = await fetch(`/russelDownload/?_csrf=${csrfToken}`, {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
     });
     if (e.ok) {
       let t = await e.blob(),

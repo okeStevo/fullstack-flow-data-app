@@ -7,6 +7,6 @@ const {
 const router = express.Router();
 router.post("/russelFetch", russelGetDataFromjs);
 router.get("/russel", russelGetRoutes);
-router.get("/russelDownload", russelDownload);
+router.post("/russelDownload", russelDownload);
 
 module.exports = router;

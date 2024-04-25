@@ -47,7 +47,7 @@ function russelGetDataFromjs(req, res) {
     .then((filteredRows) => {
       console.log(filteredRows);
       res.json({ data: filteredRows });
-      filteredRows = null
+      filteredRows = null;
     })
     .catch((error) => {
       res.status(500).json({ error: "Error fetching data" });
@@ -57,6 +57,7 @@ function russelGetRoutes(req, res) {
   res.render("base/russel");
 }
 async function russelDownload(req, res) {
+  console.log(req.body);
   const authClient = await sheetsAuth.getClient();
   const spreadsheetId = "1D1BcUfyHKdiXNVXs4rzWAIVF7dGV56SEBzyRGzegiPY";
   const range = "RUSLEFactors";
@@ -65,7 +66,11 @@ async function russelDownload(req, res) {
     spreadsheetId,
     range,
   });
-  const coordinates = req.session.coordinates;
+
+  let coordinates = req.session.coordinates
+  if (!coordinates) {
+    coordinates = [req.body[0], req.body[1], req.body[2], req.body[3]];
+  }
   const values = response.data.values;
   // Filter the data based on the date
   const filteredRows = values.filter((row) => {
@@ -88,8 +93,7 @@ async function russelDownload(req, res) {
     "P_factor_m",
     "K_factor_m",
     "Rusle2_1",
-  ]); // Add column headers
-  // Iterate through your filtered data and push each row as an array
+  ]);
   filteredRows.forEach((row) => {
     formattedData.push([
       row[0],
@@ -100,7 +104,7 @@ async function russelDownload(req, res) {
       row[6],
       row[7],
       row[8],
-    ]); 
+    ]);
   });
 
   const csvWriter = createCsvWriter({
@@ -118,8 +122,7 @@ async function russelDownload(req, res) {
     ],
   });
   // Write the formatted data to the CSV file
-  csvWriter.writeRecords(formattedData).then(() => {
-  });
+  csvWriter.writeRecords(formattedData).then(() => {});
 
   res.setHeader("Content-disposition", "attachment; filename=rusle.csv");
   res.set("Content-Type", "text/csv");
