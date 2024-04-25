@@ -66,7 +66,7 @@ closeBtn.addEventListener("click", () => {
     let l;
     try {
       (loading.innerHTML =
-        '<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl" style="color: rgb(0,0,0);"></i>'),
+        '<i class="fa-solid fa-spinner fa-spin-pulse" style="color: rgb(0,0,0);"></i>'),
         (l = fetch(`/sheet?limit=100&_csrf=${csrfToken}`, {
           method: "POST",
           body: JSON.stringify({ startDate: t, endDate: n }),

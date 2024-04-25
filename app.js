@@ -17,6 +17,10 @@ const createCsrfToken = require("./middleware/csrftoken");
 const MongoDBStore = mongodbstore(session);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+let port = 3000;
+if(process.env.PORT){
+  port = process.env.PORT
+}
 app.use(express.static("public"));
 const sessionStore = new MongoDBStore({
   uri: "mongodb://127.0.0.1:27017",
@@ -55,7 +59,7 @@ app.use("/", function (req, res, next) {
 app.use(serverSideErrorHandler);
 db.getDb()
   .then(function () {
-    app.listen(4000);
+    app.listen(port);
   })
   .catch(function (next) {
     next(error);

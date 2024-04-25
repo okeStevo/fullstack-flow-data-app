@@ -17,7 +17,7 @@ async function login(req, res, next) {
     flashDataToAuthPages.sessionError(req, {
       ...entered,
       hasError: true,
-      errMessage: `incorrect credentials, 
+      errMessage: `Incorrect credentials, 
         check yor crendentials, make sure your 
         password is more than 5 characters and make sure you fill in all inputs!!!`,
     });
@@ -36,7 +36,7 @@ async function login(req, res, next) {
     flashDataToAuthPages.sessionError(req, {
       ...entered,
       hasError: true,
-      errMessage: "user does not exist!!",
+      errMessage: "User does not exist!!",
     });
     res.redirect("/login");
     return;
@@ -53,7 +53,7 @@ async function login(req, res, next) {
     flashDataToAuthPages.sessionError(req, {
       ...entered,
       hasError: true,
-      errMessage: "incorrect password",
+      errMessage: "Err :The email and password combination does'nt match",
     });
     res.redirect("/login");
     return;
@@ -83,9 +83,7 @@ async function signup(req, res) {
     email: email,
     phoneNumber: phoneNumber,
   };
-  if (
-    flashDataToAuthPages.signupError(email, password,name, phoneNumber)
-  ) {
+  if (flashDataToAuthPages.signupError(email, password, name, phoneNumber)) {
     console.log("incomplete");
     flashDataToAuthPages.sessionError(req, {
       ...enteredData,

@@ -1,9 +1,12 @@
 
 <%- include('../includes/head', {title: "SDI - flow data", content: "enter your range to fetch flow data, starting from 2024"}) %>
+
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/head.css" />
     <link rel="stylesheet" href="styles/russel.css">
     <script src="scripts/fetchRussel.js" defer></script>
+    <script src="https://kit.fontawesome.com/83edc462d7.js" defer crossorigin="anonymous"></script>
+
   </head>
   <header><%- include('../includes/header') %></header>
 
@@ -11,27 +14,47 @@
     <div class="container">
         <h2>Styled Form</h2>
         <form data-csrfToken="<%= locals.csrfToken %>">
+            <p class="loading"></p>
             <div class="group">
                 <h3 class="group-heading">Start</h3>
                 <div class="form-group">
+<<<<<<< HEAD
                     <input type="" inputmode="numeric" placeholder="Longitude" name="longStart" class="sea-blue">
                 </div>
                 <div class="form-group">
                     <input type="" inputmode="numeric" placeholder="latitude" name="latStart" class="sea-blue">
+=======
+                    <input type="" inputmode="numeric" placeholder="Longitude" name="longStart" value="" class="sea-blue">
+                </div>
+                <div class="form-group">
+                    <input type="" inputmode="numeric" placeholder="latitude" value="" name="latStart" class="sea-blue">
+>>>>>>> local
                 </div>
             </div>
             <div class="group">
                 <h3 class="group-heading">End</h3>
                 <div class="form-group">
+<<<<<<< HEAD
                     <input type="" inputmode="numeric" placeholder="longitude" name="longend" class="sea-blue">
                 </div>
                 <div class="form-group">
                     <input type="" inputmode="numeric" placeholder="latitude" name="latEnd" class="sea-blue">
+=======
+                    <input type="" inputmode="numeric" placeholder="longitude" value="" name="longend" class="sea-blue">
+                </div>
+                <div class="form-group">
+                    <input type="" inputmode="numeric" value="" placeholder="latitude" name="latEnd" class="sea-blue">
+>>>>>>> local
                 </div>
             </div>
-            <button type="submit" class="submit-button">Submit</button>
+            <button type="submit" class="submit-button">view</button>
         </form>
+<<<<<<< HEAD
         <!-- nbjbuyf -->
+=======
+      <button class="downloadButton">DownLoad</button>
+
+>>>>>>> local
     </div>
     <div>
         <table>
@@ -48,6 +71,7 @@
       <th>RUSLE2_1</th>
     </tr>
   </thead>
+<<<<<<< HEAD
   <tbody>
     <tr>
       <td>Value 1</td>
@@ -62,6 +86,9 @@
       </tr>
    
   </tbody>
+=======
+  <tbody class="tableHolder"></tbody>
+>>>>>>> local
 </table>
 
     </div>
