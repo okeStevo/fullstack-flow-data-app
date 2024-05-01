@@ -11,8 +11,7 @@ function dataGetRoutes(req, res) {
 }
 
 function monitorGetRoutes(req, res) {
-res.render("incompletePage") 
-  // res.render("base/monitor");
+  res.render("base/monitor");
 }
 function confirmGetRoutes(req, res) {
   res.render("base/confirm");

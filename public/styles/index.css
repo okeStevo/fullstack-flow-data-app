@@ -245,3 +245,8 @@ section.image img {
     box-shadow: 0 0 5px 2px #fff; /* Reduced glow */
   }
 }
+@media (max-width: 375px) {
+  .image-overlay {
+    width: 90%;
+  }
+}
