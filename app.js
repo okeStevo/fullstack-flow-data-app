@@ -61,7 +61,7 @@ app.use("/", function (req, res, next) {
 app.use(serverSideErrorHandler);
 db.getDb()
   .then(function () {
-    app.listen(port, "0.0.0.0");
+    app.listen(port, "44.233.151.27");
   })
   .catch(function (next) {
     next(error);
