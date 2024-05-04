@@ -1,15 +1,4 @@
-const russ = document.querySelector(".container form");
-const tableHolder = document.querySelector(".tableholder");
-const downloadButton = document.querySelector(".downloadButton");
-const loading = document.querySelector(".loading");
-const csrfToken = russ.dataset.csrftoken;
-const inputValues = document.querySelectorAll(".sea-blue");
-console.log(inputValues[1].value);
-console.log(csrfToken);
-
-function buildTable(e) {
-  for (let t = 0; t < e.length; t++) {
-    var n = `
+const russ=document.querySelector(".container form"),tableHolder=document.querySelector(".tableholder"),downloadButton=document.querySelector(".downloadButton"),loading=document.querySelector(".loading"),csrfToken=russ.dataset.csrftoken,inputValues=document.querySelectorAll(".sea-blue");function buildTable(e){for(let t=0;t<e.length;t++){var r=`
     <tr>
     <td>
     ${e[t][0]}
@@ -39,73 +28,4 @@ function buildTable(e) {
               ${e[t][8]}
               </td>
               </tr>
-              `;
-    return (tableHolder.innerHTML += n);
-  }
-  downloadButton.style.display = "block";
-}
-
-russ.addEventListener("submit", async function (event) {
-  event.preventDefault();
-  const fd = new FormData(event.target);
-  const data = Object.fromEntries(fd.entries());
-  console.log(data);
-
-  try {
-    loading.innerHTML =
-      '<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl" style="color: rgb(0,0,0);"></i>';
-
-    let e = await fetch(`/russelFetch?_csrf=${csrfToken}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    loading.innerHTML  ="Success"
-    let d = await e.json();
-    if (d.error) {
-      console.log(d.error);
-      alert(d.error);
-      return;
-    }
-    const dataFrom = d.data;
-    function chunkArray(array, size) {
-      const chunks = [];
-      for (let i = 0; i < array.length; i += size) {
-        chunks.push(array.slice(i, i + size));
-      }
-      return chunks;
-    }
-    const result = chunkArray(dataFrom, 50);
-    buildTable(result);
-  } catch (o) {
-    console.error("Error during download:", o);
-  }
-});
-
-downloadButton.addEventListener("click", handleDownloadClick);
-async function handleDownloadClick() {
-  const values = [
-    inputValues[0].value,
-    inputValues[1].value,
-    inputValues[2].value,
-    inputValues[3].value
-  ];
-  try {
-    let e = await fetch(`/russelDownload/?_csrf=${csrfToken}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
-    if (e.ok) {
-      let t = await e.blob(),
-        n = window.URL.createObjectURL(t),
-        l = document.createElement("a");
-      (l.href = n),
-        l.setAttribute("download", "filtered_data.csv"),
-        l.click(),
-        window.URL.revokeObjectURL(n);
-    } else console.error("Download request failed:", e.statusText);
-  } catch (o) {
-    console.error("Error during download:", o);
-  }
-}
+              `;return tableHolder.innerHTML+=r}downloadButton.style.display="block"}async function handleDownloadClick(){let e=[inputValues[0].value,inputValues[1].value,inputValues[2].value,inputValues[3].value];try{let t=await fetch(`/russelDownload/?_csrf=${csrfToken}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)});if(t.ok){let r=await t.blob(),l=window.URL.createObjectURL(r),o=document.createElement("a");o.href=l,o.setAttribute("download","filtered_data.csv"),o.click(),window.URL.revokeObjectURL(l)}else console.error("Download request failed:",t.statusText)}catch(n){console.error("Error during download:",n)}}console.log(inputValues[1].value),console.log(csrfToken),russ.addEventListener("submit",async function(e){e.preventDefault();let t=new FormData(e.target),r=Object.fromEntries(t.entries());console.log(r);try{loading.innerHTML='<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl" style="color: rgb(0,0,0);"></i>';let l=await fetch(`/russelFetch?_csrf=${csrfToken}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)});loading.innerHTML="Success";let o=await l.json();if(o.error){console.log(o.error),alert(o.error);return}let n=o.data,a=function e(t,r){let l=[];for(let o=0;o<t.length;o+=r)l.push(t.slice(o,o+r));return l}(n,50);buildTable(a)}catch(d){console.error("Error during download:",d)}}),downloadButton.addEventListener("click",handleDownloadClick);
