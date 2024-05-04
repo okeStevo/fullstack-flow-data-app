@@ -23,7 +23,8 @@
     "express-session": "^1.17.3",
     "googleapis": "^126.0.1",
     "mongodb": "^6.2.0",
-    "mongoose": "6.10.1"
+    "mongoose": "6.10.1",
+    "vercel": "^34.1.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
