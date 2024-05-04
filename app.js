@@ -6,7 +6,7 @@ const session = require("express-session");
 const mongodbstore = require("connect-mongodb-session");
 const authRoutes = require("./routes/auth.routes");
 const sheetRoute = require("./routes/sheet.routes");
-const russel = require("./routes/russel.routes")
+const russel = require("./routes/russel.routes");
 const getLogAndSign = require("./routes/log-ang-sign.get.routes");
 const checkAuthStatus = require("./middleware/checkauthstatus");
 const baseRoutes = require("./routes/base.routes");
@@ -18,13 +18,14 @@ const MongoDBStore = mongodbstore(session);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 let port = 4000;
-if(process.env.PORT){
-  port = process.env.PORT
+if (process.env.PORT) {
+  port = process.env.PORT;
 }
 app.use(express.static("public"));
-let mongoDb_url ="mongodb://127.0.0.1:27017"
-if(process.env.mongoDb_url){
-  mongoDb_url = "mongodb+srv://stevodiditwell:oUu8eznlP1V4CLxq@cluster0.zeekhgr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+let mongoDb_url = "mongodb://127.0.0.1:27017";
+if (process.env.mongoDb_url) {
+  mongoDb_url =
+    "mongodb+srv://stevodiditwell:oUu8eznlP1V4CLxq@cluster0.zeekhgr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 }
 const sessionStore = new MongoDBStore({
   uri: mongoDb_url,
@@ -55,7 +56,7 @@ app.use(getLogAndSign);
 app.use(routes);
 app.use(sheetRoute);
 app.use(contsctsRoutes);
-app.use(russel)
+app.use(russel);
 app.use("/", function (req, res, next) {
   res.render("404");
   next();
