@@ -17,10 +17,8 @@ const createCsrfToken = require("./middleware/csrftoken");
 const MongoDBStore = mongodbstore(session);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-let port = 4000;
-if (process.env.PORT) {
-  port = process.env.PORT;
-}
+const port =  process.env.PORT || 4000;
+
 app.use(express.static("public"));
 let mongoDb_url = "mongodb://127.0.0.1:27017";
 if (process.env.mongoDb_url) {
