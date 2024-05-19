@@ -22,10 +22,11 @@ if (process.env.PORT) {
   port = process.env.PORT;
 }
 app.use(express.static("public"));
-let mongoDb_url = "mongodb://127.0.0.1:27017";
-if (process.env.MONGODB_URL) {
-  mongoDb_url = process.env.MONGODB_URL;
-}
+let mongoDb_url =
+  "mongodb+srv://ikuomolaomoniyi:Omoniyisdi@sdi.cochg38.mongodb.net/?retryWrites=true&w=majority&appName=sdi";
+// if (process.env.MONGODB_URL) {
+//   mongoDb_url = process.env.MONGODB_URL;
+// }
 const sessionStore = new MongoDBStore({
   uri: mongoDb_url,
   databaseName: "sdi",
@@ -61,10 +62,4 @@ app.use("/", function (req, res, next) {
   next();
 });
 app.use(serverSideErrorHandler);
-db.getDb()
-  .then(function () {
-    app.listen(port);
-  })
-  .catch(function (next) {
-    next(error);
-  });
+app.listen(port);
