@@ -6,7 +6,7 @@
     "node": "20.12.2"
   },
   "scripts": {
-    "start": "npm start"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Oke Stephen",
