@@ -1,12 +1,12 @@
 const mongoDb = require("mongodb");
 const MongoClient = mongoDb.MongoClient;
 let database;
-let mongoDbUrl = "mongodb://127.0.0.1:27017";
-if (process.env.mongoDb_url) {
-  connectString = process.env.mongoDb_url;
+let mongodbUrl = "mongodb://127.0.0.1:27017";
+if (process.env.MONGODB_URL) {
+  connectString = process.env.MONGODB_URL;
 }
 async function getDb() {
-  const connect = await MongoClient.connect(mongoDbUrl);
+  const connect = await MongoClient.connect(mongodbUrl);
   database = connect.db("sdi");
 }
 function connectDb() {

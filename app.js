@@ -23,8 +23,8 @@ if (process.env.PORT) {
 }
 app.use(express.static("public"));
 let mongoDb_url = "mongodb://127.0.0.1:27017";
-if (process.env.mongoDb_url) {
-  mongoDb_url = process.env.mongoDb_url;
+if (process.env.MONGODB_URL) {
+  mongoDb_url = process.env.MONGODB_URL;
 }
 const sessionStore = new MongoDBStore({
   uri: mongoDb_url,
